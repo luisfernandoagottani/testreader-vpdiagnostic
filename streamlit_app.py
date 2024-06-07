@@ -20,7 +20,8 @@ with st.sidebar:
     
     if test_option == "ImmunoComb Peritonite Infecciosa Felina":
         model_url = "https://github.com/luisfernandoagottani/testreader-vpdiagnostic/edit/master/pif/pif_20240607.joblib"  # Replace with the actual URL of your joblib file
-
+    else:
+        model_url = "https://github.com/luisfernandoagottani/testreader-vpdiagnostic/edit/master/pif/pif_20240607.joblib"
 @st.cache_resource
 def load_model(url):
     response = requests.get(url)
