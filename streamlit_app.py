@@ -43,7 +43,7 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption='Uploaded Image.', use_column_width=True)
 
-    if model_file and model:
+    if model_url and model:
         st.write("Classifying...")
         def predict_image(image):
             img = load_img(image, target_size=(150, 150))
