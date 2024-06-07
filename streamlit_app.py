@@ -3,6 +3,7 @@ import numpy as np
 from PIL import Image
 import joblib
 import requests
+import h5py
 from io import BytesIO
 
 # Page title
