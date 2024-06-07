@@ -25,7 +25,6 @@ with st.sidebar:
 
 @st.cache_resource
 def load_model(url):
-    response = requests.get(url)
     model_file = BytesIO(requests.get(url).content)
     # Load the model from the file-like object using h5py
     model = pickle.load(model_file)
