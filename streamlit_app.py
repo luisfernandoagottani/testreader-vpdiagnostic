@@ -24,8 +24,7 @@ with st.sidebar:
 @st.cache_resource
 def load_model(url):
     response = requests.get(url)
-    response.raise_for_status()
-    model_file = BytesIO(response.content)
+    model_file = BytesIO(requests.get(url).content)
     model = joblib.load(model_file)
     return model
 
@@ -35,7 +34,7 @@ if model_url:
         model = load_model(model_url)
         st.success("Model loaded successfully!")
     except Exception as e:
-        st.error(f"Error loading model: {requests.get('https://github.com/luisfernandoagottani/testreader-vpdiagnostic/edit/master/pif/pif_20240607.joblib').content}")
+        st.error(f"Error loading model: {e}")
 
 # Main section for image upload and prediction
 st.header('Upload an Image')
