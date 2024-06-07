@@ -25,10 +25,12 @@ with st.sidebar:
 
 @st.cache_resource
 def load_model(url):
-    model_file = BytesIO(requests.get(url).content)
+    # model_file = BytesIO(requests.get(url).content)
     # Load the model from the file-like object using h5py
-    model = pickle.load(model_file)
+    # model = pickle.load(model_file)
     # model = joblib.load(model_file)
+    with open(‘./pif/pif_20240607.pkl’, ‘rb’) as pickle_in:
+    model = pickle.load(pickle_in)
     return model
 
 if model_url:
