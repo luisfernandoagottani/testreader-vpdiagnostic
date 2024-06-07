@@ -6,8 +6,6 @@ import requests
 import h5py
 from io import BytesIO
 import pickle
-from keras.models import load_model
-
 # Page title
 st.set_page_config(page_title='Image Diagnosis Prediction', page_icon='🩺')
 st.title('🩺 Image Diagnosis Prediction')
