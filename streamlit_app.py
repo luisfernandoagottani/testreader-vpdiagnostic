@@ -17,11 +17,9 @@ with st.expander('About this app'):
 with st.sidebar:
     st.header('Test Selection')
     test_option = st.selectbox("Choose a test", ["ImmunoComb Peritonite Infecciosa Felina"])
-
-    st.header('Model')
+    
     if test_option == "ImmunoComb Peritonite Infecciosa Felina":
         model_url = "https://github.com/luisfernandoagottani/testreader-vpdiagnostic/edit/master/pif/pif_20240607.joblib"  # Replace with the actual URL of your joblib file
-        model_file = st.text_input("Model URL", model_url)
 
 @st.cache_resource
 def load_model(url):
@@ -31,7 +29,7 @@ def load_model(url):
     model = joblib.load(model_file)
     return model
 
-if model_file:
+if model_url:
     try:
         st.write("Loading model...")
         model = load_model(model_url)
