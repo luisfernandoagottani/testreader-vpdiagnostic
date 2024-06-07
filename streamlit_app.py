@@ -5,6 +5,8 @@ import joblib
 import requests
 import h5py
 from io import BytesIO
+import pickle
+from keras.models import load_model
 
 # Page title
 st.set_page_config(page_title='Image Diagnosis Prediction', page_icon='🩺')
@@ -20,17 +22,16 @@ with st.sidebar:
     test_option = st.selectbox("Choose a test", ["ImmunoComb Peritonite Infecciosa Felina"])
     
     if test_option == "ImmunoComb Peritonite Infecciosa Felina":
-        model_url = "https://github.com/luisfernandoagottani/testreader-vpdiagnostic/edit/master/pif/pif_20240607.h5"  # Replace with the actual URL of your joblib file
+        model_url = "https://github.com/luisfernandoagottani/testreader-vpdiagnostic/edit/master/pif/pif_20240607.pkl"  # Replace with the actual URL of your joblib file
 
 @st.cache_resource
 def load_model(url):
-    response = requests.get(url)
-    model_file = BytesIO(requests.get(url).content)
+    # model_file = BytesIO(requests.get(url).content)
     # Load the model from the file-like object using h5py
-    with h5py.File(model_file, 'r') as f:
-        # Access the model object within the HDF5 file
-        model = f['model']
+    # model = pickle.load(model_file)
     # model = joblib.load(model_file)
+    with open("./pif/pif_20240607.pkl", "rb") as pickle_in:
+        model = pickle.load(pickle_in)
     return model
 
 if model_url:
