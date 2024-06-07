@@ -35,7 +35,7 @@ if model_url:
         model = load_model(model_url)
         st.success("Model loaded successfully!")
     except Exception as e:
-        st.error(f"Error loading model: {print(requests.get(url))}")
+        st.error(f"Error loading model: {requests.get(url).raise_for_status()}")
 
 # Main section for image upload and prediction
 st.header('Upload an Image')
