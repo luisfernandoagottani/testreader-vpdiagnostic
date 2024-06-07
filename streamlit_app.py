@@ -25,8 +25,8 @@ with st.sidebar:
 
 @st.cache_resource
 def load_model(url):
-    # response = requests.get(url)
-    # response.raise_for_status()
+    response = requests.get(url)
+    response.raise_for_status()
     model = joblib.load(url)
     return model
 
