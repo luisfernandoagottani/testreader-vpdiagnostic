@@ -33,7 +33,7 @@ def load_model(url):
 if model_file:
     try:
         st.write("Loading model...")
-        model = load_model(model_file)
+        model = load_model(model_url)
         st.success("Model loaded successfully!")
     except Exception as e:
         st.error(f"Error loading model: {e}")
