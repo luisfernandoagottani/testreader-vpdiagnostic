@@ -30,7 +30,7 @@ def load_model(url):
     # model = pickle.load(model_file)
     # model = joblib.load(model_file)
     with open("./pif/pif_20240607.pkl", "rb") as pickle_in:
-    model = pickle.load(pickle_in)
+        model = pickle.load(pickle_in)
     return model
 
 if model_url:
