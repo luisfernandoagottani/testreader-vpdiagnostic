@@ -27,7 +27,7 @@ with st.sidebar:
 def load_model(url):
     response = requests.get(url)
     response.raise_for_status()
-    model_file = io.BytesIO(response.content)
+    model_file = BytesIO(response.content)
     model = joblib.load(model_file)
     return model
 
