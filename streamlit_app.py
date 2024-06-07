@@ -29,7 +29,7 @@ def load_model(url):
     # Load the model from the file-like object using h5py
     with h5py.File(model_file, 'r') as f:
         # Access the model object within the HDF5 file
-        model = f['pif_20240607']
+        model = f
     # model = joblib.load(model_file)
     return model
 
