@@ -70,7 +70,7 @@ if uploaded_file is not None:
         if preds.max() > 0.8:
             st.write(f"Resultado: {resultados}")
         else:
-            st.write("Pouca confiança na previsão. Se for possível, tente usar fundo branco e apenas um teste por vez."
+            st.write("Pouca confiança na previsão. Se for possível, tente usar fundo branco e apenas um teste por vez.")
     else:
         st.warning("Please upload a model file to make predictions.")
 else:
