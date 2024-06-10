@@ -23,7 +23,7 @@ with st.sidebar:
     test_option = st.selectbox("Choose a test", ["ImmunoComb Peritonite Infecciosa Felina"])
     
     if test_option == "ImmunoComb Peritonite Infecciosa Felina":
-        model_url = "https://github.com/luisfernandoagottani/testreader-vpdiagnostic/edit/master/pif/pif_20240607.pkl"  # Replace with the actual URL of your joblib file
+        model_url = "https://github.com/luisfernandoagottani/testreader-vpdiagnostic/edit/master/pif/pif_20240607.joblib"  # Replace with the actual URL of your joblib file
 
 @st.cache_resource
 def load_model(url):
