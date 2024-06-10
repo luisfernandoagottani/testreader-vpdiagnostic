@@ -69,7 +69,7 @@ if uploaded_file is not None:
         resultados = descriptions_indices[prediction_class]
         if preds.max() > 0.8:
             st.write(f"Resultado: {resultados}")
-            st.write(f"Confiança: {preds.max()*100.round(2)} %")
+            st.write(f"Confiança: {round(preds.max()*100,2)} %")
         else:
             st.write("Pouca confiança na previsão. Se for possível, tente usar fundo branco e apenas um teste por vez.")
     else:
