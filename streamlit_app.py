@@ -25,17 +25,12 @@ with st.sidebar:
     test_option = st.selectbox("Choose a test", ["ImmunoComb Peritonite Infecciosa Felina"])
     
     if test_option == "ImmunoComb Peritonite Infecciosa Felina":
-        model_url = "https://github.com/luisfernandoagottani/testreader-vpdiagnostic/edit/master/pif/pif_20240607.joblib"  # Replace with the actual URL of your joblib file
-
+        model_url = "./pif/pif_20240607.joblib"  # Replace with the actual URL of your joblib file
+        class_url = "./pif/pif_class_indices.json"
+        description_url = "./pif/pif_class_descriptions.json"
 @st.cache_resource
 def load_model(url):
-    # model_file = BytesIO(requests.get(url).content)
-    # Load the model from the file-like object using h5py
-    # model = pickle.load(model_file)
-    # model = joblib.load(model_file)
-    # with open("./pif/pif_20240607.joblib", "rb") as pickle_in:
-        # model = joblib.load(pickle_in)
-    model = joblib.load("./pif/pif_20240607.joblib")
+    model = joblib.load(model_url)
     return model
 
 if model_url:
@@ -63,8 +58,16 @@ if uploaded_file is not None:
             preds = model.predict(x)
             return preds
         preds = predict_image(uploaded_file)
-        
-        st.write(f"Prediction: {np.argmax(preds)}")
+        # Read the JSON file
+        with open(class_url, 'r') as file:
+            class_indices = json.load(file)
+        prediction_class = next(key for key, value in class_indices.items() if value == np.argmax(preds))
+        # Read the JSON file
+        with open(description_url, 'r') as file:
+            descriptions_indices = json.load(file)
+            
+        resultados = descriptions_indices[prediction_class]
+        st.write(f"Resultado: {resultados}")
     else:
         st.warning("Please upload a model file to make predictions.")
 else:
