@@ -8,6 +8,7 @@ from io import BytesIO
 import pickle
 import tensorflow as tf
 from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_array, load_img, array_to_img
 import keras
 # Page title
 st.set_page_config(page_title='Image Diagnosis Prediction', page_icon='🩺')
