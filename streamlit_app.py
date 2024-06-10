@@ -60,7 +60,7 @@ if uploaded_file is not None:
             x /= 255.0
             preds = model.predict(x)
             return preds
-        preds = predict_image(image_path)
+        preds = predict_image(image)
         
         st.write(f"Prediction: {np.argmax(preds)}")
     else:
