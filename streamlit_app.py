@@ -31,9 +31,9 @@ def load_model(url):
     # Load the model from the file-like object using h5py
     # model = pickle.load(model_file)
     # model = joblib.load(model_file)
-    with open("./pif/pif_20240607.joblib", "rb") as pickle_in:
-        model = joblib.load(pickle_in)
-    # model = joblib.load("./pif/pif_2024060.joblib")
+    # with open("./pif/pif_20240607.joblib", "rb") as pickle_in:
+        # model = joblib.load(pickle_in)
+    model = joblib.load("./pif/pif_2024060.joblib")
     return model
 
 if model_url:
