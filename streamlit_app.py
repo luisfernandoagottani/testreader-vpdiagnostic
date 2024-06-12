@@ -15,12 +15,10 @@ import keras
 st.set_page_config(page_title='Image Diagnosis Prediction', page_icon='🩺')
 st.title('🩺 Image Diagnosis Prediction')
 
-with st.expander('About this app'):
-    st.markdown('**What can this app do?**')
-    st.info('This app allows users to upload an image and get a diagnosis prediction using a pre-trained model.')
+st.info('This app allows users to upload an image and get a diagnosis prediction using a pre-trained model.')
 
 # Sidebar for test and model selection
-with st.sidebar:
+with st.expander:
     st.header('Test Selection')
     test_option = st.selectbox("Choose a test", ["ImmunoComb Peritonite Infecciosa Felina"])
     
