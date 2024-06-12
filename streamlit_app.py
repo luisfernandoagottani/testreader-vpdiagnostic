@@ -39,9 +39,7 @@ if model_url:
     try:
         st.write("Carregando modelo...")
         model = load_model(model_url)
-        st.success("Modelo carregado com sucesso!")
     except Exception as e:
-        st.error(f"Erro ao carregar modelo: {e}")
 
 # Main section for image upload and prediction
 st.header('Para realizar a leitura do teste diagnóstico por imagem, carregue a imagem conforme a imagem de exemplo.')
