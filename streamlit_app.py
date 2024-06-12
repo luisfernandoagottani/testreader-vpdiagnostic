@@ -18,14 +18,15 @@ st.title('🩺 Image Diagnosis Prediction')
 st.info('This app allows users to upload an image and get a diagnosis prediction using a pre-trained model.')
 
 # Sidebar for test and model selection
-with st.expander:
-    st.header('Test Selection')
-    test_option = st.selectbox("Choose a test", ["ImmunoComb Peritonite Infecciosa Felina"])
+
+st.header('Test Selection')
+test_option = st.selectbox("Choose a test", ["ImmunoComb Peritonite Infecciosa Felina"])
     
-    if test_option == "ImmunoComb Peritonite Infecciosa Felina":
-        model_url = "./pif/pif_20240607.joblib"  # Replace with the actual URL of your joblib file
-        class_url = "./pif/pif_class_indices.json"
-        description_url = "./pif/pif_class_descriptions.json"
+if test_option == "ImmunoComb Peritonite Infecciosa Felina":
+    model_url = "./pif/pif_20240607.joblib"  # Replace with the actual URL of your joblib file
+    class_url = "./pif/pif_class_indices.json"
+    description_url = "./pif/pif_class_descriptions.json"
+    
 @st.cache_resource
 def load_model(url):
     model = joblib.load(model_url)
