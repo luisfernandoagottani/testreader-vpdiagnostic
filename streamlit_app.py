@@ -45,10 +45,10 @@ st.header('Carregar imagem')
 uploaded_file = st.file_uploader("Selecione uma imagem, de preferência com fundo branco e apenas um teste por vez...", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
-    st.image(image, caption='Imagem carregada.', use_column_width=True)
+    st.image(image, caption='Imagem carregada.', width=300)
 
     if model_url and model:
-        st.write("Classifying...")
+        st.write("Classificando...")
         def predict_image(image):
             img = load_img(image, target_size=(150, 150))
             x = img_to_array(img)
