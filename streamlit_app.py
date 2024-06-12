@@ -42,7 +42,7 @@ if model_url:
         st.write("Erro. O modelo não está disponível.")
 
 # Main section for image upload and prediction
-st.header('Para realizar a leitura do teste diagnóstico por imagem, carregue a imagem conforme a imagem de exemplo.')
+st.header('Para realizar a leitura do teste diagnóstico por imagem, carregue a imagem conforme exemplo.')
 st.image('exemplo_teste.png', caption='Exemplo de Imagem', width=300)
 uploaded_file = st.file_uploader("Selecione uma imagem, de preferência com fundo branco e apenas um teste por vez...", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
