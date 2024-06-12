@@ -12,17 +12,17 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_array, load_img, array_to_img
 import keras
 # Page title
-st.set_page_config(page_title='Image Diagnosis Prediction', page_icon='🩺')
-st.title('🩺 Image Diagnosis Prediction')
+st.set_page_config(page_title='Predição de Diagnóstico por Imagem', page_icon='🩺')
+st.title('🩺 Predição de Diagnóstico por Imagem')
 
-st.info('This app allows users to upload an image and get a diagnosis prediction using a pre-trained model.')
+st.info('Este aplicativo permite que os usuários enviem uma imagem e obtenham uma previsão de diagnóstico usando um modelo pré-treinado..')
 
 # Sidebar for test and model selection
 
-st.header('Test Selection')
-test_option = st.selectbox("Choose a test", ["ImmunoComb Peritonite Infecciosa Felina"])
+st.header('Seleção de teste diagnóstico')
+test_option = st.selectbox("Escolha um teste:", ["ImmunoComb Peritonite Infecciosa Felina"])
     
-if test_option == "ImmunoComb Peritonite Infecciosa Felina":
+if test_option == "ImmunoComb Peritonite Infecciosa Felina (PIF)":
     model_url = "./pif/pif_20240607.joblib"  # Replace with the actual URL of your joblib file
     class_url = "./pif/pif_class_indices.json"
     description_url = "./pif/pif_class_descriptions.json"
@@ -34,18 +34,18 @@ def load_model(url):
 
 if model_url:
     try:
-        st.write("Loading model...")
+        st.write("Carregando modelo...")
         model = load_model(model_url)
-        st.success("Model loaded successfully!")
+        st.success("Modelo carregado com sucesso!")
     except Exception as e:
-        st.error(f"Error loading model: {e}")
+        st.error(f"Erro ao carregar modelo: {e}")
 
 # Main section for image upload and prediction
-st.header('Upload an Image')
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+st.header('Carregar imagem')
+uploaded_file = st.file_uploader("Selecione uma imagem, de preferência com fundo branco e apenas um teste por vez...", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
-    st.image(image, caption='Uploaded Image.', use_column_width=True)
+    st.image(image, caption='Imagem carregada.', use_column_width=True)
 
     if model_url and model:
         st.write("Classifying...")
@@ -72,6 +72,6 @@ if uploaded_file is not None:
         else:
             st.write("Pouca confiança na previsão. Se for possível, tente usar fundo branco e apenas um teste por vez.")
     else:
-        st.warning("Please upload a model file to make predictions.")
+        st.warning("Carregar uma imagem para realizar a predição.")
 else:
-    st.warning("Please upload an image to classify.")
+    st.warning("Carregar uma imagem para realizar a predição.")
