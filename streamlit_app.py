@@ -12,6 +12,8 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_array, load_img, array_to_img
 import keras
 # Page title
+
+st.image('LOGO_VP_V_ORIGINAL.png', use_column_width=True)
 st.set_page_config(page_title='Leitura do Diagnóstico por Imagem', page_icon='🩺')
 st.title('🩺 Leitura do Diagnóstico por Imagem')
 
