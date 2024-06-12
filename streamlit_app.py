@@ -14,7 +14,7 @@ import keras
 # Page title
 
 st.set_page_config(page_title='Leitura do Diagnóstico por Imagem', page_icon='🩺')
-st.image('LOGO_VP_V_ORIGINAL.png', width = 200)
+st.image('LOGO_VP_V_ORIGINAL.png', use_column_width=True)
 st.title('🩺 Leitura do Diagnóstico por Imagem')
 
 st.info('Este aplicativo permite que os usuários enviem uma imagem e obtenham uma leitura do teste diagnóstico usando um modelo pré-treinado...')
