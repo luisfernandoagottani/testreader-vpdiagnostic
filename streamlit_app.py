@@ -45,7 +45,7 @@ st.header('Carregar imagem')
 uploaded_file = st.file_uploader("Selecione uma imagem, de preferência com fundo branco e apenas um teste por vez...", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
-    st.image(image, caption='Imagem carregada.', width=300)
+    st.image(image, caption='Imagem carregada.', width=200)
 
     if model_url and model:
         st.write("Classificando...")
