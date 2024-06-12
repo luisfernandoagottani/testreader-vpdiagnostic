@@ -12,10 +12,10 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_array, load_img, array_to_img
 import keras
 # Page title
-st.set_page_config(page_title='Predição de Diagnóstico por Imagem', page_icon='🩺')
-st.title('🩺 Predição de Diagnóstico por Imagem')
+st.set_page_config(page_title='Leitura do Diagnóstico por Imagem', page_icon='🩺')
+st.title('🩺 Leitura do Diagnóstico por Imagem')
 
-st.info('Este aplicativo permite que os usuários enviem uma imagem e obtenham uma previsão de diagnóstico usando um modelo pré-treinado...')
+st.info('Este aplicativo permite que os usuários enviem uma imagem e obtenham uma leitura do teste diagnóstico usando um modelo pré-treinado...')
 
 # Sidebar for test and model selection
 
@@ -44,7 +44,7 @@ if model_url:
         st.error(f"Erro ao carregar modelo: {e}")
 
 # Main section for image upload and prediction
-st.header('Carregar imagem')
+st.header('Para realizar a leitura do teste diagnóstico por imagem, carregue a imagem conforme a imagem de exemplo.')
 st.image('exemplo_teste.png', caption='Exemplo de Imagem', width=300)
 uploaded_file = st.file_uploader("Selecione uma imagem, de preferência com fundo branco e apenas um teste por vez...", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
