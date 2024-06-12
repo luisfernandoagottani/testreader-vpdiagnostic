@@ -28,7 +28,7 @@ if test_option == "ImmunoComb Peritonite Infecciosa Felina (PIF)":
     description_url = "./pif/pif_class_descriptions.json"
     test_info = "Teste Dot-Elisa que determina no soro, plasma de gatos o nível de anticorpo IgG contra Coronavírus Felino (FCoV). Gatos com Peritonite Infecciosa Felina (PIF) contém altos níveis de anticorpo antiCoronavírus Felino. Também pode ser utilizado líquido peritonial como amostra. O resultado negativo é útil para afastar um diagnóstico da PIF."
 
-st.info(teste_info)
+st.info(test_info)
 
 @st.cache_resource
 def load_model(url):
