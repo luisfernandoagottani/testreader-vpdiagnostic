@@ -45,7 +45,7 @@ if model_url:
 
 # Main section for image upload and prediction
 st.header('Carregar imagem')
-st.image('exemplo_teste.png', width=300)
+st.image('exemplo_teste.png', caption='Exemplo de fotografia', width=300)
 uploaded_file = st.file_uploader("Selecione uma imagem, de preferência com fundo branco e apenas um teste por vez...", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
