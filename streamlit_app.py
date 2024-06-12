@@ -15,12 +15,12 @@ import keras
 st.set_page_config(page_title='Predição de Diagnóstico por Imagem', page_icon='🩺')
 st.title('🩺 Predição de Diagnóstico por Imagem')
 
-st.info('Este aplicativo permite que os usuários enviem uma imagem e obtenham uma previsão de diagnóstico usando um modelo pré-treinado..')
+st.info('Este aplicativo permite que os usuários enviem uma imagem e obtenham uma previsão de diagnóstico usando um modelo pré-treinado...')
 
 # Sidebar for test and model selection
 
 st.header('Seleção de teste diagnóstico')
-test_option = st.selectbox("Escolha um teste:", ["ImmunoComb Peritonite Infecciosa Felina"])
+test_option = st.selectbox("Escolha um teste:", ["ImmunoComb Peritonite Infecciosa Felina (PIF)"])
     
 if test_option == "ImmunoComb Peritonite Infecciosa Felina (PIF)":
     model_url = "./pif/pif_20240607.joblib"  # Replace with the actual URL of your joblib file
