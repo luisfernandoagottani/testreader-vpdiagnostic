@@ -13,7 +13,7 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_arra
 import keras
 # Page title
 
-st.image('LOGO_VP_V_ORIGINAL.png', use_column_width=True)
+st.image('LOGO_VP_V_ORIGINAL.png', width = 200)
 st.set_page_config(page_title='Leitura do Diagnóstico por Imagem', page_icon='🩺')
 st.title('🩺 Leitura do Diagnóstico por Imagem')
 
