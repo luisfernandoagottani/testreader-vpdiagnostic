@@ -65,13 +65,14 @@ if uploaded_file is not None:
     if model_url and model:
         st.write("Classificando...")
         def predict_image(image):
-            img = load_img(image, target_size=(150, 150))
+            # img = load_img(image, target_size=(150, 150))
+            img = image.resize((150, 150))
             x = img_to_array(img)
             x = np.expand_dims(x, axis=0)
             x /= 255.0
             preds = model.predict(x)
             return preds
-        preds = predict_image(uploaded_file)
+        preds = predict_image(fixed_image)
         # Read the JSON file
         with open(class_url, 'r') as file:
             class_indices = json.load(file)
