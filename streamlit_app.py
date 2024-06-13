@@ -48,8 +48,18 @@ st.header('Para realizar a leitura do teste diagnóstico por imagem, carregue a 
 st.image('exemplo_teste.png', caption='Exemplo de Imagem', width=300)
 uploaded_file = st.file_uploader("Selecione uma imagem, de preferência com fundo branco e apenas um teste por vez...", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
-    image = Image.open(uploaded_file)
-    st.image(image, caption='Imagem carregada.', width=200)
+    def fix_orientation(image):
+    try:
+        # Fix orientation if needed
+        image = Image.open(image)
+        image = image.convert('RGB')
+        return image
+    except Exception as e:
+        st.error(f"Error fixing orientation: {e}")
+        return None
+    fixed_image = fix_orientation(uploaded_file)    
+    # image = Image.open(fixed_image)
+    st.image(fixed_image, caption='Imagem carregada.', width=200)
 
     if model_url and model:
         st.write("Classificando...")
