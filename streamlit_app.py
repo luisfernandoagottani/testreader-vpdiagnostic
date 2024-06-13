@@ -40,7 +40,6 @@ def load_model(url):
 if model_url:
     try:
         model = load_model(model_url)
-        st.write(model_url)
     except Exception as e:
         st.write("Erro. O modelo não está disponível.")
 
