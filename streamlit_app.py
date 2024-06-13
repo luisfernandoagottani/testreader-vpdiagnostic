@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 from PIL import Image
+from PIL import ImageOps
 import joblib
 import requests
 import json
@@ -52,7 +53,7 @@ if uploaded_file is not None:
     try:
         # Fix orientation if needed
         image = Image.open(image)
-        image = image.convert('RGB')
+        image = ImageOps.exif_transpose(image)
         return image
     except Exception as e:
         st.error(f"Error fixing orientation: {e}")
