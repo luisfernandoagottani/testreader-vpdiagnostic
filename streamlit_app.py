@@ -23,9 +23,9 @@ st.info('Este aplicativo permite que os usuários enviem uma imagem e obtenham u
 # Sidebar for test and model selection
 
 st.header('Seleção de teste diagnóstico')
-test_option = st.selectbox("Escolha um teste:", ["ImmunoComb Peritonite Infecciosa Felina (PIF)","ImmunoComb Ehrlichia Canis IgG"])
+test_option = st.selectbox("Escolha um teste:", ["ImmunoComb Peritonite Infecciosa Felina (PIF) Coronavírus Felino (FCoV) IgG","ImmunoComb Ehrlichia Canis IgG"])
     
-if test_option == "ImmunoComb Peritonite Infecciosa Felina (PIF)":
+if test_option == "ImmunoComb Peritonite Infecciosa Felina (PIF) Coronavírus Felino (FCoV) IgG":
     model_url = "./pif/pif_20240612.joblib"  # Replace with the actual URL of your joblib file
     class_url = "./pif/pif_class_indices.json"
     description_url = "./pif/pif_class_descriptions.json"
