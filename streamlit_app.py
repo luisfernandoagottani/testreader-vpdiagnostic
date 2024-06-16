@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 from PIL import Image
+from PIL import ImageOps
 import joblib
 import requests
 import json
@@ -25,7 +26,7 @@ st.header('Seleção de teste diagnóstico')
 test_option = st.selectbox("Escolha um teste:", ["ImmunoComb Peritonite Infecciosa Felina (PIF)","ImmunoComb Ehrlichia Canis IgG"])
     
 if test_option == "ImmunoComb Peritonite Infecciosa Felina (PIF)":
-    model_url = "./pif/pif_20240607.joblib"  # Replace with the actual URL of your joblib file
+    model_url = "./pif/pif_20240612.joblib"  # Replace with the actual URL of your joblib file
     class_url = "./pif/pif_class_indices.json"
     description_url = "./pif/pif_class_descriptions.json"
     test_info = "Teste Dot-Elisa que determina no soro, plasma de gatos o nível de anticorpo IgG contra Coronavírus Felino (FCoV). Gatos com Peritonite Infecciosa Felina (PIF) contém altos níveis de anticorpo antiCoronavírus Felino. Também pode ser utilizado líquido peritonial como amostra. O resultado negativo é útil para afastar um diagnóstico da PIF."
@@ -53,19 +54,30 @@ st.header('Para realizar a leitura do teste diagnóstico por imagem, carregue a 
 st.image('exemplo_teste.png', caption='Exemplo de Imagem', width=300)
 uploaded_file = st.file_uploader("Selecione uma imagem, de preferência com fundo branco e apenas um teste por vez...", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
-    image = Image.open(uploaded_file)
-    st.image(image, caption='Imagem carregada.', width=200)
+    def fix_orientation(image):
+        try:
+            # Fix orientation if needed
+            image = Image.open(image)
+            image = ImageOps.exif_transpose(image)
+            return image
+        except Exception as e:
+            st.error(f"Error fixing orientation: {e}")
+            return None
+    fixed_image = fix_orientation(uploaded_file)    
+    # image = Image.open(fixed_image)
+    st.image(fixed_image, caption='Imagem carregada.', width=200)
 
     if model_url and model:
         st.write("Classificando...")
         def predict_image(image):
-            img = load_img(image, target_size=(150, 150))
+            # img = load_img(image, target_size=(150, 150))
+            img = image.resize((150, 150))
             x = img_to_array(img)
             x = np.expand_dims(x, axis=0)
             x /= 255.0
             preds = model.predict(x)
             return preds
-        preds = predict_image(uploaded_file)
+        preds = predict_image(fixed_image)
         # Read the JSON file
         with open(class_url, 'r') as file:
             class_indices = json.load(file)
