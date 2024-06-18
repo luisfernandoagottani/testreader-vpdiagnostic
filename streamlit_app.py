@@ -75,8 +75,8 @@ if uploaded_file is not None:
         st.write("Classificando...")
         def predict_image(image):
             # img = load_img(image, target_size=(150, 150))
-            img = image.resize((150, 150))
-            x = img_to_array(img)
+            # img = image.resize((150, 150))
+            x = img_to_array(image)
             x = np.expand_dims(x, axis=0)
             x /= 255.0
             preds = model.predict(x)
