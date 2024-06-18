@@ -91,7 +91,7 @@ if uploaded_file is not None:
             descriptions_indices = json.load(file)
             
         resultados = descriptions_indices[prediction_class]
-        if preds.max() > 0.8:
+        if preds.max() > 0.3:
             st.write(f"Resultado: {resultados}")
             st.write(f"Confiança: {round(preds.max()*100,2)} %")
         else:
