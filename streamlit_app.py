@@ -44,7 +44,7 @@ st.info(test_info)
 
 @st.cache_resource
 def load_model(url):
-    model = joblib.load(model_url)
+    model = joblib.load(url)
     return model
 
 if model_url:
