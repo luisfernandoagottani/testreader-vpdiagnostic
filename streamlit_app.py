@@ -51,7 +51,7 @@ if model_url:
     try:
         model = load_model(model_url)
     except Exception as e:
-        st.write("Erro. O modelo não está disponível.")
+        st.write(e)
 
 # Main section for image upload and prediction
 st.header('Para realizar a leitura do teste diagnóstico por imagem, carregue a imagem conforme exemplo.')
