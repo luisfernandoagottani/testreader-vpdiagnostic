@@ -2,8 +2,7 @@ streamlit==1.35.0
 numpy==1.26.4
 Pillow==10.3.0
 joblib==1.4.2
-requests==2.32.3
 h5py==3.11.0
-keras==2.15.0
-tensorflow==2.15.0
+keras==3.3.3
+tensorflow==3.3.3
 
