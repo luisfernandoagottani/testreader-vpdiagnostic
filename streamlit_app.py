@@ -61,7 +61,7 @@ if uploaded_file is not None:
     def fix_orientation(image):
         try:
             # Fix orientation if needed
-            image = Image.open(image).convert("RGBA").convert("HSV")
+            image = Image.open(image).convert("RGB").convert("HSV")
             image = ImageOps.exif_transpose(image)
             return image
         except Exception as e:
