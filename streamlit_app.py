@@ -61,7 +61,7 @@ if uploaded_file is not None:
     def fix_orientation(image):
         try:
             # Fix orientation if needed
-            image = Image.open(image).convert("HSV")
+            image = Image.open(image)
             image = ImageOps.exif_transpose(image)
             return image
         except Exception as e:
@@ -76,6 +76,7 @@ if uploaded_file is not None:
         st.write("Classificando...")
         def predict_image(image):
             # img = load_img(image, target_size=(150, 150))
+            img = img.convert("HSV")
             img = image.resize((150, 150))
             x = img_to_array(img)
             x = np.expand_dims(x, axis=0)
