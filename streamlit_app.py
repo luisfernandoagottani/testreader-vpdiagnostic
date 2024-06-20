@@ -77,7 +77,7 @@ if uploaded_file is not None:
         def predict_image(image):
             # img = load_img(image, target_size=(150, 150))
             img = image.convert("HSV")
-            img = image.resize((150, 150))
+            img = img.resize((150, 150))
             x = img_to_array(img)
             x = np.expand_dims(x, axis=0)
             x /= 255.0
