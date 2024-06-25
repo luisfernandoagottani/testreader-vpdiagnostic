@@ -26,17 +26,17 @@ st.header('Seleção de teste diagnóstico')
 test_option = st.selectbox("Escolha um teste:", ["ImmunoComb Peritonite Infecciosa Felina (PIF) Coronavírus Felino (FCoV) IgG","ImmunoComb Ehrlichia Canis IgG","ImmunoComb Leptospira canina IgG"])
 
 if test_option == "ImmunoComb Peritonite Infecciosa Felina (PIF) Coronavírus Felino (FCoV) IgG":
-    model_url = "./pif/models/cnn_hvs_20240620.joblib"  # Replace with the actual URL of your joblib file
+    model_url = "./pif/models/cnn_hvs_20240624.joblib"  # Replace with the actual URL of your joblib file
     class_url = "./pif/pif_class_indices.json"
     description_url = "./pif/pif_class_descriptions.json"
     test_info = "Teste Dot-Elisa que determina no soro, plasma de gatos o nível de anticorpo IgG contra Coronavírus Felino (FCoV). Gatos com Peritonite Infecciosa Felina (PIF) contém altos níveis de anticorpo antiCoronavírus Felino. Também pode ser utilizado líquido peritonial como amostra. O resultado negativo é útil para afastar um diagnóstico da PIF."
 elif test_option == "ImmunoComb Ehrlichia Canis IgG":
-    model_url = "./pif/models/cnn_hvs_20240620.joblib"  # Replace with the actual URL of your joblib file
+    model_url = "./pif/models/cnn_hvs_20240624.joblib"  # Replace with the actual URL of your joblib file
     class_url = "./pif/pif_class_indices.json"
     description_url = "./pif/pif_class_descriptions.json"
     test_info = "Teste Dot-Elisa que detecta Ehrlichia canis a partir de 20 dias após a infecção. Semi-quantitativo, informa ao Clínico se a doença está regredindo. Fácil de usar – Teste de amostras individuais."
 elif test_option == "ImmunoComb Leptospira canina IgG":
-    model_url = "./pif/models/cnn_hvs_20240620.joblib"  # Replace with the actual URL of your joblib file
+    model_url = "./pif/models/cnn_hvs_20240624.joblib"  # Replace with the actual URL of your joblib file
     class_url = "./pif/pif_class_indices.json"
     description_url = "./pif/pif_class_descriptions.json"
     test_info = "O kit Canine Leptospira foi projetado para determinar em soros de caninos, títulos de anticorpos séricos de diferentes sorovares patogênicos de Leptospira interrogans, como L. icterohaemorrhagiae (copenhageni e RGA), L. canicola, L. pomona e L. grippotyphosa, ligando anticorpos para as variantes mais encontradas em cães."
